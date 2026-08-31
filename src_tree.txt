@@ -1,0 +1,181 @@
+Folder PATH listing for volume Windows-SSD
+Volume serial number is CE89-0A6E
+C:\USERS\91891\DOWNLOADS\SARJANAHRMS-MAIN (3)\SARJANAHRMS-MAIN\SRC
+¦   App.tsx
+¦   index.css
+¦   main.tsx
+¦   
++---api
+¦   ¦   company.js
+¦   ¦   payroll.js
+¦   ¦   salary.js
+¦   ¦   server.js
+¦   ¦   
+¦   +---routes
+¦           company.js
+¦           
++---components
+¦   ¦   FloatingContactButton.tsx
+¦   ¦   Footer.tsx
+¦   ¦   ForceFieldBackground.tsx
+¦   ¦   Layout.tsx
+¦   ¦   Navbar.tsx
+¦   ¦   NodeDiagram.tsx
+¦   ¦   PageTransition.tsx
+¦   ¦   
+¦   +---auth
+¦   ¦       CompanyRegistration.jsx
+¦   ¦       Login.jsx
+¦   ¦       Signup.jsx
+¦   ¦       
+¦   +---common
+¦   ¦       DynamicMeshBackground.jsx
+¦   ¦       ErrorBoundary.jsx
+¦   ¦       GlassCard.jsx
+¦   ¦       Header.jsx
+¦   ¦       LoadingScreen.jsx
+¦   ¦       MasterDiagram.jsx
+¦   ¦       NotificationToast.jsx
+¦   ¦       ServiceGraph.jsx
+¦   ¦       ServiceNavbar.jsx
+¦   ¦       ServiceNodeTree.jsx
+¦   ¦       ServiceRadialGraph.jsx
+¦   ¦       ServicesMindMap.jsx
+¦   ¦       ServicesMindMap_BACKUP.jsx
+¦   ¦       ServicesMindMap_PREMIUM.jsx
+¦   ¦       ServiceTree.jsx
+¦   ¦       SplashScreen.jsx
+¦   ¦       SubmitCV.jsx
+¦   ¦       
+¦   +---dashboard
+¦   ¦       AdminDashboard.jsx
+¦   ¦       EmployeeDashboard.jsx
+¦   ¦       EmployeeDetailsModal.jsx
+¦   ¦       HRDashboard.jsx
+¦   ¦       
+¦   +---debug
+¦   ¦       SignupDebug.jsx
+¦   ¦       SimpleDashboardTest.jsx
+¦   ¦       
+¦   +---sections
+¦           AboutSarjanaSection.jsx
+¦           AboutSection.tsx
+¦           
++---context
+¦       AttendanceContext.jsx
+¦       AuthContext.jsx
+¦       EventContext.jsx
+¦       LeaveContext.jsx
+¦       NotificationContext.jsx
+¦       PayrollContext.jsx
+¦       TaskContext.jsx
+¦       ThemeContext.jsx
+¦       
++---hooks
+¦       useClock.js
+¦       usePayroll.js
+¦       
++---lib
+¦       api.js
+¦       supabase.js
+¦       
++---middleware
+¦       companyIsolation.js
+¦       
++---pages
+¦   ¦   About.tsx
+¦   ¦   Careers.tsx
+¦   ¦   Contact.tsx
+¦   ¦   Dashboard.jsx
+¦   ¦   Home.tsx
+¦   ¦   Login.tsx
+¦   ¦   Signup.tsx
+¦   ¦   Solutions.tsx
+¦   ¦   Subscription.tsx
+¦   ¦   
+¦   +---admin
+¦   ¦       Analytics.jsx
+¦   ¦       AuditLogs.jsx
+¦   ¦       Database.jsx
+¦   ¦       EditUser.jsx
+¦   ¦       ManageUsers.jsx
+¦   ¦       ModuleMonitor.jsx
+¦   ¦       Security.jsx
+¦   ¦       SecurityAlertDetail.jsx
+¦   ¦       SystemConfig.jsx
+¦   ¦       
+¦   +---dashboard
+¦   ¦       AddEmployee.jsx
+¦   ¦       ApplyLeave.jsx
+¦   ¦       EmployeeKYC.jsx
+¦   ¦       EmployeeSalary.jsx
+¦   ¦       ExpenseSubmission.jsx
+¦   ¦       ManageAttendance.jsx
+¦   ¦       ManageEvents.jsx
+¦   ¦       ManageLeaves.jsx
+¦   ¦       ManageTasks.jsx
+¦   ¦       MyPerformance.jsx
+¦   ¦       Policies.jsx
+¦   ¦       ProcessPayroll.jsx
+¦   ¦       ProfileSettings.jsx
+¦   ¦       Reports.jsx
+¦   ¦       TeamDirectory.jsx
+¦   ¦       ViewPayslip.jsx
+¦   ¦       ViewTasks.jsx
+¦   ¦       
+¦   +---hr
+¦   ¦       EditUser.jsx
+¦   ¦       ManageUsers.jsx
+¦   ¦       SalaryManagement.jsx
+¦   ¦       TravelExpenseApprovals.jsx
+¦   ¦       
+¦   +---hr-services
+¦   ¦       ContractualStaffing.jsx
+¦   ¦       ContractualStaffingEnhanced.jsx
+¦   ¦       FlexiStaffing.jsx
+¦   ¦       FlexiStaffingEnhanced.jsx
+¦   ¦       PayrollSolutions.jsx
+¦   ¦       PayrollSolutionsEnhanced.jsx
+¦   ¦       PermanentStaffing.jsx
+¦   ¦       PermanentStaffingEnhanced.jsx
+¦   ¦       Recruitment.jsx
+¦   ¦       RecruitmentEnhanced.jsx
+¦   ¦       StaffingSolutions.jsx
+¦   ¦       StaffingSolutionsEnhanced.jsx
+¦   ¦       
+¦   +---hrms
+¦   ¦       AttendanceManagement.jsx
+¦   ¦       AttendanceManagementEnhanced.jsx
+¦   ¦       ComplianceReports.jsx
+¦   ¦       EmployeeLifecycle.jsx
+¦   ¦       EmployeeLifecycleEnhanced.jsx
+¦   ¦       OnboardingDocumentation.jsx
+¦   ¦       PayrollManagement.jsx
+¦   ¦       PayrollManagementEnhanced.jsx
+¦   ¦       PerformanceManagement.jsx
+¦   ¦       PerformanceManagementEnhanced.jsx
+¦   ¦       
+¦   +---services
+¦   ¦       Attendance.tsx
+¦   ¦       Compliance.tsx
+¦   ¦       EmployeeLifecycle.tsx
+¦   ¦       Onboarding.tsx
+¦   ¦       PayrollCore.tsx
+¦   ¦       PayrollSolutions.tsx
+¦   ¦       Performance.tsx
+¦   ¦       Recruitment.tsx
+¦   ¦       Staffing.tsx
+¦   ¦       
+¦   +---solutions
+¦           Analytics.tsx
+¦           Onboarding.tsx
+¦           Performance.tsx
+¦           Recruitment.tsx
+¦           
++---utils
+        dashboardData.js
+        helpers.js
+        payrollTest.js
+        salaryTest.js
+        testEmployees.js
+        

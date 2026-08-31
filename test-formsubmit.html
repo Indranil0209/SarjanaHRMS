@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FormSubmit Test</title>
+</head>
+<body>
+    <h1>FormSubmit.co Test Form</h1>
+    <form action="https://formsubmit.co/sarjanahrtech@gmail.com" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_subject" value="Test Submission from FormSubmit">
+        <input type="hidden" name="_next" value="http://localhost:3003/">
+        
+        <p>
+            <label>Name: <input type="text" name="name" required></label>
+        </p>
+        <p>
+            <label>Email: <input type="email" name="email" required></label>
+        </p>
+        <p>
+            <label>Message: <textarea name="message"></textarea></label>
+        </p>
+        <p>
+            <label>File: <input type="file" name="attachment"></label>
+        </p>
+        <p>
+            <button type="submit">Send Test</button>
+        </p>
+    </form>
+</body>
+</html>
