@@ -1,0 +1,142 @@
+===============================================================================
+QUICK FIX: How to Register Employees
+===============================================================================
+
+ERROR YOU'RE SEEING:
+"No employee record found matching this Employee ID. Please contact HR."
+
+WHY THIS HAPPENS:
+The system requires employee records to exist BEFORE they can register accounts.
+Think of it like this:
+  1. HR adds employee to database (creates employee record)
+  2. Employee gets their Employee ID from HR
+  3. Employee uses that ID to register their own account
+
+===============================================================================
+SOLUTION: Add Employee Records First
+===============================================================================
+
+OPTION 1: Use SQL Script (Fastest)
+-----------------------------------
+
+1. Open your database client (Supabase, pgAdmin, etc.)
+
+2. Run this query to get your company ID:
+   
+   SELECT id, name, company_code FROM companies;
+   
+   Copy the 'id' value (it's a UUID like: c550e8400-e29b-41d4-a716-446655440000)
+
+3. Open the file: add-test-employee.sql (I just created it)
+
+4. Replace 'YOUR_COMPANY_ID_HERE' with your actual company ID (3 places)
+
+5. Run the script
+
+6. Done! You now have 3 test employees:
+   - EMP123 (John Doe)
+   - EMP456 (Jane Smith)
+   - EMP789 (Bob Johnson)
+
+
+OPTION 2: Login as HR and Create Employees
+------------------------------------------
+
+1. Login to the system as HR Manager:
+   Email: sarah.hr@company.com
+   Password: password123
+
+2. Navigate to "Employee Management" or "Add Employee" section
+
+3. Fill in the employee details
+
+4. Save the record
+
+5. The employee can now register using that Employee ID
+
+
+===============================================================================
+TEST THE REGISTRATION
+===============================================================================
+
+After adding employee records, test the registration:
+
+1. Go to: http://localhost:8000/employee-registration
+
+2. You need TWO pieces of information:
+   
+   a) COMPANY CODE - Get it from database:
+      SELECT company_code FROM companies LIMIT 1;
+      (Example: COMP-ABC123)
+   
+   b) EMPLOYEE ID - Use one you just created:
+      (Example: EMP123)
+
+3. Fill the registration form:
+   ┌─────────────────────────────────────────┐
+   │ Company Code:      [Your company code]  │
+   │ Employee ID:       EMP123               │
+   │ Full Name:         John Doe             │
+   │ Email:             john.doe@company.com │
+   │ Password:          SecurePass123        │
+   │ Confirm Password:  SecurePass123        │
+   └─────────────────────────────────────────┘
+
+4. Click "Register Employee"
+
+5. ✅ Success! Employee account created!
+
+
+===============================================================================
+VERIFY IT WORKED
+===============================================================================
+
+Run this SQL query to see the employee is now linked to a user:
+
+SELECT 
+    e.employee_id,
+    e.first_name,
+    e.last_name,
+    e.user_id,
+    u.email,
+    u.role
+FROM employees e
+LEFT JOIN users u ON e.user_id = u.id
+WHERE e.employee_id IN ('EMP123', 'EMP456', 'EMP789');
+
+BEFORE REGISTRATION: user_id will be NULL
+AFTER REGISTRATION:  user_id will have a UUID value
+
+
+===============================================================================
+QUICK REFERENCE
+===============================================================================
+
+Files I Created for You:
+├── CREATE_EMPLOYEE_RECORDS.md      (Detailed guide)
+├── add-test-employee.sql           (SQL script to run)
+└── QUICK_FIX_EMPLOYEE_REGISTRATION.txt (This file)
+
+Database Tables Involved:
+├── companies  (has company_code)
+├── employees  (has employee_id) ← Must exist first!
+└── users      (created during registration)
+
+Registration Flow:
+1. HR creates employee record → employees table
+2. Employee registers account → users table
+3. System links them → employee.user_id = user.id
+
+
+===============================================================================
+NEED MORE HELP?
+===============================================================================
+
+See the detailed guide:
+📄 CREATE_EMPLOYEE_RECORDS.md
+
+Or check existing documentation:
+📄 DEMO_CREDENTIALS.md (for login credentials)
+📄 HOW_TO_ACCESS_EMPLOYEE_REGISTRATION.md (for registration page)
+
+===============================================================================

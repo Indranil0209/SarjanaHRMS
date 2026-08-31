@@ -1,0 +1,65 @@
+================================================================================
+                      QUICK FIX - IT SUPER ADMIN
+================================================================================
+
+PROBLEM FOUND:
+  User: giwore2911@dolofan.com
+  Current company_type: non-it ❌ WRONG
+  Should be: it ✅ CORRECT
+  
+CONSOLE LOG PROOF:
+  CompanyType: non-it
+  Profile Role: super_admin
+  ✅ Routing Non-IT admin to CompanyDashboard (WRONG!)
+
+================================================================================
+SOLUTION: Run SQL in Supabase
+================================================================================
+
+1. Go to: https://supabase.com/dashboard
+2. Click on your project
+3. Click: SQL Editor (left sidebar)
+4. Create new query
+5. Copy this SQL:
+
+UPDATE users 
+SET company_type = 'it' 
+WHERE email = 'giwore2911@dolofan.com';
+
+6. Click "Run" button
+7. You should see: "1 row updated"
+
+================================================================================
+VERIFICATION
+================================================================================
+
+After running the SQL, check with this query:
+
+SELECT email, company_type, role FROM users 
+WHERE email = 'giwore2911@dolofan.com';
+
+Expected result:
+  email: giwore2911@dolofan.com
+  company_type: it ✅
+  role: super_admin
+
+================================================================================
+TEST
+================================================================================
+
+After fixing:
+1. Refresh browser (Ctrl+Shift+R or Cmd+Shift+R)
+2. Logout and login again
+3. Check console - should see:
+   "✅ Routing IT admin to AdminDashboard" ✅
+4. Dashboard should show:
+   - AdminDashboard with system stats
+   - NO location tracking
+   - Analytics charts
+   - Security alerts
+
+================================================================================
+THAT'S IT!
+================================================================================
+
+Just run that one SQL line and refresh. It will fix the problem immediately!
