@@ -1,0 +1,237 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                 NON-IT EMPLOYEE DASHBOARD - FINAL DEPLOYMENT                 ║
+║                          DEPLOYMENT COMPLETE ✅                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+📊 DASHBOARD STRUCTURE (Top to Bottom)
+════════════════════════════════════════════════════════════════════════════════
+
+┌─ SECTION 1: DASHBOARD HEADER ─────────────────────────────────────────────┐
+│                                                                              │
+│  Welcome, [Employee Name]         Status: [Dropdown]  [Refresh Button]    │
+│  [Full Date]                                                                │
+│                                                                              │
+│  Features:                                                                   │
+│  • Welcome message with employee name                                       │
+│  • Current date (full format)                                              │
+│  • Status selector dropdown (4 options)                                    │
+│  • Refresh button with loading indicator                                   │
+│  • Visual status indicator badge                                           │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌─ SECTION 2: CURRENT TIME & ATTENDANCE (2-Column Grid) ────────────────────┐
+│                                                                              │
+│  ┌─────────────────────────────┐  ┌─────────────────────────────┐         │
+│  │   CURRENT TIME CARD         │  │   ATTENDANCE CARD           │         │
+│  │   (Gradient Blue→Purple)    │  │                             │         │
+│  │                             │  │   Check-in Time: 09:30 AM   │         │
+│  │   Current Time              │  │   Status: Present ✓         │         │
+│  │   14:45:32                  │  │                             │         │
+│  │   July 16, 2026             │  └─────────────────────────────┘         │
+│  │   🕐 (Clock Icon)           │                                           │
+│  │                             │                                           │
+│  └─────────────────────────────┘                                           │
+│                                                                              │
+│  Features:                                                                   │
+│  • Real-time clock updating every second                                   │
+│  • Time format: HH:MM:SS                                                   │
+│  • Full date display                                                        │
+│  • Attendance check-in time                                                │
+│  • Color-coded status badge                                                │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌─ SECTION 3: LOCATION TRACKING TOGGLE ⭐ (FIRST AFTER ATTENDANCE) ──────────┐
+│                                                                              │
+│  Location Tracking          ✓ Enabled        [TOGGLE SWITCH]●─────       │
+│  Enable to share your real-time location with HR managers                 │
+│                                                                              │
+│  🔵 Toggle Visual:                                                          │
+│     When DISABLED: Gray background, switch on left                        │
+│     When ENABLED:  Green background with glow, switch on right            │
+│                                                                              │
+│  Features:                                                                   │
+│  • Toggle switch with animation                                            │
+│  • Status display (✓ Enabled / ✗ Disabled)                               │
+│  • Reads from: users.location_tracking_enabled                           │
+│  • Writes to: users.location_tracking_enabled                            │
+│  • Loading state during update                                             │
+│  • Persists across page refresh                                            │
+│  • Error handling with user alerts                                         │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌─ SECTION 4: LOCATION DISPLAY (CONDITIONAL - Shows when ENABLED) ──────────┐
+│                                                                              │
+│  ┌──────────────────────────────────────┐  ┌──────────────────────────┐   │
+│  │   YOUR LIVE LOCATION                 │  │   QUICK ACTIONS        │   │
+│  │   🔵 Online                          │  │                        │   │
+│  │                                      │  │  [Apply Leave] [Pay]   │   │
+│  │  📍 Current Location:                │  │  [Team]        [Prof]  │   │
+│  │     Conference Room A                │  │                        │   │
+│  │                                      │  └──────────────────────────┘   │
+│  │  📍 GPS Coordinates:                 │                                 │
+│  │     28.6139, 77.2090                 │                                 │
+│  │                                      │                                 │
+│  │  🕐 Last Updated:                    │                                 │
+│  │     7/16/2026, 2:45:30 PM            │                                 │
+│  │                                      │                                 │
+│  │  [View on Google Maps]               │                                 │
+│  │  [Refresh Location]                  │                                 │
+│  │                                      │                                 │
+│  └──────────────────────────────────────┘                                 │
+│                                                                              │
+│  Features:                                                                   │
+│  • Current location address display                                         │
+│  • GPS coordinates (latitude, longitude)                                   │
+│  • Last updated timestamp                                                  │
+│  • Online/Offline status indicator                                         │
+│  • Google Maps integration                                                  │
+│  • Manual refresh button                                                    │
+│  • Error handling display                                                   │
+│  • NO location data fallback message                                       │
+│                                                                              │
+│  Quick Actions:                                                              │
+│  • Apply Leave - Navigate to leave application                            │
+│  • Payslip - Navigate to payslip view                                     │
+│  • Team - Navigate to team directory                                      │
+│  • Profile - Navigate to profile settings                                 │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌─ SECTION 5: LOCATION HISTORY (CONDITIONAL - Shows when ENABLED) ──────────┐
+│                                                                              │
+│  LOCATION HISTORY (Last 10 Check-ins)                                      │
+│                                                                              │
+│  1. Office Building 1              7/16/2026, 09:15 AM      ✓ Present    │
+│  2. Parking Lot B                  7/16/2026, 08:45 AM      ✓ Present    │
+│  3. Main Entrance                  7/16/2026, 08:30 AM      ✓ Present    │
+│  [... more entries ...]                                                     │
+│                                                                              │
+│  Features:                                                                   │
+│  • Location name display                                                    │
+│  • Full timestamp                                                           │
+│  • Status badge (Present/Other)                                            │
+│  • Scrollable list (max-height with overflow)                             │
+│  • Hover effects                                                            │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌─ SECTION 6: DISABLED STATE MESSAGE (Shows when DISABLED) ───────────────┐
+│                                                                            │
+│  🔌 Location Tracking Disabled                                           │
+│                                                                            │
+│  Enable location tracking from the toggle above to share your            │
+│  real-time location with your organization.                             │
+│                                                                            │
+│  When enabled, your location will be visible to HR managers              │
+│  and admins.                                                              │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
+
+┌─ SECTION 7: TASKS (If any tasks assigned) ──────────────────────────────┐
+│                                                                            │
+│  YOUR TASKS                                                               │
+│                                                                            │
+│  📋 Task 1: Prepare Q3 Report                                            │
+│     In Progress | Due: 7/25/2026                                          │
+│     This task requires quarterly analysis and reporting.                 │
+│                                                                            │
+│  📋 Task 2: Client Presentation                                          │
+│     Completed ✓ | Due: 7/20/2026                                         │
+│     Prepare and present to stakeholders.                                  │
+│                                                                            │
+│  Features:                                                                 │
+│  • Task title display                                                      │
+│  • Task description                                                        │
+│  • Status badge (Completed, In Progress, Pending)                         │
+│  • Due date information                                                    │
+│  • Color-coded status indicators                                          │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
+
+════════════════════════════════════════════════════════════════════════════════
+
+📦 BUILD & DEPLOYMENT STATUS
+════════════════════════════════════════════════════════════════════════════════
+
+✅ Build Status:        SUCCESS
+✅ Errors:              0
+✅ Build Time:          21.18 seconds
+✅ Modules Transformed: 2458
+✅ File Size:           1,783.47 kB (gzipped: 388.47 kB)
+
+📁 Files Changed:
+   • src/components/dashboard/NonITEmployeeDashboard.jsx - UPDATED ✅
+   • src/components/dashboard/NonITEmployeeDashboard_New.jsx - DELETED ✅
+
+════════════════════════════════════════════════════════════════════════════════
+
+🧪 TESTING CHECKLIST
+════════════════════════════════════════════════════════════════════════════════
+
+Test Account: nonitemployee1@company.com
+
+After logging in, verify:
+
+📋 Dashboard Header:
+   ☐ Welcome message shows correct employee name
+   ☐ Current date displays correctly
+   ☐ Status selector dropdown works and saves
+   ☐ Refresh button works without errors
+
+🕐 Time & Attendance:
+   ☐ Current time updates every second
+   ☐ Time format is HH:MM:SS
+   ☐ Attendance section shows check-in time
+   ☐ Status badge displays correctly
+
+🔘 Location Toggle:
+   ☐ Toggle switch appears after Attendance
+   ☐ Toggle switches between enabled/disabled
+   ☐ Status text updates (✓ Enabled / ✗ Disabled)
+   ☐ Toggle state persists on page refresh
+   ☐ No console errors during toggle
+
+📍 Location Sections (when ENABLED):
+   ☐ Live location card displays
+   ☐ Current location name shows
+   ☐ GPS coordinates display
+   ☐ Last updated timestamp shows
+   ☐ Google Maps button opens in new tab
+   ☐ Refresh button works
+   ☐ Location history section displays
+   ☐ Last 10 entries show with timestamps
+
+🔌 Location Sections (when DISABLED):
+   ☐ Disabled message displays
+   ☐ Location cards are hidden
+   ☐ Location history is hidden
+   ☐ Quick Actions still visible
+
+⚡ Quick Actions:
+   ☐ Apply Leave button navigates correctly
+   ☐ Payslip button navigates correctly
+   ☐ Team button navigates correctly
+   ☐ Profile button navigates correctly
+
+📋 Tasks:
+   ☐ Tasks section displays (if tasks exist)
+   ☐ Task titles show correctly
+   ☐ Task descriptions show correctly
+   ☐ Status badges are color-coded
+   ☐ Due dates display correctly
+
+════════════════════════════════════════════════════════════════════════════════
+
+🎉 DEPLOYMENT COMPLETE - READY FOR TESTING!
+
+All features from IT Employee Dashboard have been successfully added to the
+Non-IT Employee Dashboard. The location tracking toggle is positioned as the
+first item after the Attendance section, using the users.location_tracking_enabled
+column as the single source of truth.
+
+Test with: nonitemployee1@company.com
+
+════════════════════════════════════════════════════════════════════════════════

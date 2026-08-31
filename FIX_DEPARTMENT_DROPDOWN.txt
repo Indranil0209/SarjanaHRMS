@@ -1,0 +1,186 @@
+===============================================================================
+QUICK FIX: Department Dropdown Empty in Add Employee Form
+===============================================================================
+
+PROBLEM:
+The Department dropdown in "Add Employee" form has no options to select.
+
+REASON:
+Your database doesn't have any departments yet!
+
+===============================================================================
+SOLUTION: Add Departments to Database (2 Minutes)
+===============================================================================
+
+STEP 1: Open Supabase SQL Editor
+------------------------------------
+1. Go to your Supabase Dashboard
+2. Click "SQL Editor" in the left sidebar
+3. Click "New Query"
+
+
+STEP 2: Copy and Paste This Script
+------------------------------------
+Copy this ENTIRE script and paste it:
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│                                                                         │
+│  DO $$                                                                  │
+│  DECLARE                                                                │
+│      v_company_id UUID;                                                 │
+│  BEGIN                                                                  │
+│      SELECT id INTO v_company_id FROM companies LIMIT 1;               │
+│                                                                         │
+│      INSERT INTO departments (company_id, name, description) VALUES    │
+│      (v_company_id, 'Engineering', 'Software Development'),            │
+│      (v_company_id, 'Human Resources', 'HR Operations'),               │
+│      (v_company_id, 'Sales', 'Sales Department'),                      │
+│      (v_company_id, 'Marketing', 'Marketing Department'),              │
+│      (v_company_id, 'Finance', 'Finance Department'),                  │
+│      (v_company_id, 'Operations', 'Operations Department'),            │
+│      (v_company_id, 'Customer Service', 'Customer Support'),           │
+│      (v_company_id, 'Product', 'Product Management')                   │
+│      ON CONFLICT DO NOTHING;                                           │
+│                                                                         │
+│      INSERT INTO job_positions (company_id, title, description) VALUES │
+│      (v_company_id, 'Software Engineer', 'Developer'),                 │
+│      (v_company_id, 'Senior Software Engineer', 'Senior Dev'),         │
+│      (v_company_id, 'HR Manager', 'HR Management'),                    │
+│      (v_company_id, 'HR Specialist', 'HR Operations'),                 │
+│      (v_company_id, 'Sales Manager', 'Sales Management'),              │
+│      (v_company_id, 'Sales Representative', 'Sales Rep'),              │
+│      (v_company_id, 'Marketing Manager', 'Marketing Lead'),            │
+│      (v_company_id, 'Accountant', 'Accounting'),                       │
+│      (v_company_id, 'Operations Manager', 'Operations Lead'),          │
+│      (v_company_id, 'Customer Support Rep', 'Support')                 │
+│      ON CONFLICT DO NOTHING;                                           │
+│  END $$;                                                               │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+
+STEP 3: Click "RUN" Button
+------------------------------------
+Click the green "RUN" or "Execute" button at the bottom
+
+
+STEP 4: Verify It Worked
+------------------------------------
+Run this query to check:
+
+SELECT COUNT(*) FROM departments;
+
+Should return: 8 (or more)
+
+
+STEP 5: Refresh Add Employee Page
+------------------------------------
+1. Go back to your browser
+2. Press F5 to refresh the page
+3. Department dropdown should now have options! ✅
+
+
+===============================================================================
+TEST IT
+===============================================================================
+
+1. Go to: http://localhost:8000/dashboard/hr/users
+2. Click "Add User" button
+3. Scroll to "Department" dropdown
+4. Click on it
+
+Should now show:
+┌─────────────────────────┐
+│ [ Select Department ]   │
+│ Customer Service        │
+│ Engineering             │
+│ Finance                 │
+│ Human Resources         │
+│ Marketing               │
+│ Operations              │
+│ Product                 │
+│ Sales                   │
+└─────────────────────────┘
+
+5. Scroll to "Position" dropdown
+6. Click on it
+
+Should show:
+┌─────────────────────────────┐
+│ [ Select Position ]         │
+│ Accountant                  │
+│ Customer Support Rep        │
+│ HR Manager                  │
+│ HR Specialist               │
+│ Marketing Manager           │
+│ Operations Manager          │
+│ Sales Manager               │
+│ Sales Representative        │
+│ Senior Software Engineer    │
+│ Software Engineer           │
+└─────────────────────────────┘
+
+
+===============================================================================
+TROUBLESHOOTING
+===============================================================================
+
+Problem: Script shows error
+Solution: Make sure you have a company in your database
+Check: SELECT * FROM companies;
+
+
+Problem: Still no options after refresh
+Solution: 
+1. Open browser console (F12)
+2. Look for error messages
+3. Check if departments loaded:
+   Should see: "Departments loaded: (8) [...]"
+
+
+Problem: Dropdown shows but can't click
+Solution: 
+1. Clear browser cache
+2. Hard refresh: Ctrl+Shift+R
+3. Try different browser
+
+
+===============================================================================
+QUICK CHECK
+===============================================================================
+
+Check departments exist:
+```
+SELECT name FROM departments ORDER BY name;
+```
+
+Check positions exist:
+```
+SELECT title FROM job_positions ORDER BY title;
+```
+
+If both return rows → Refresh browser and it will work! ✅
+
+
+===============================================================================
+FILES CREATED
+===============================================================================
+
+📄 QUICK_ADD_DEPARTMENTS.sql - Full SQL script with more positions
+📄 FIX_DEPARTMENT_DROPDOWN.txt - This quick guide
+
+
+===============================================================================
+SUMMARY
+===============================================================================
+
+✅ Copy SQL script
+✅ Paste in Supabase SQL Editor
+✅ Click RUN
+✅ Refresh browser
+✅ Department dropdown now works!
+
+TIME: 2 minutes
+RESULT: Dropdown has 8 departments and 10+ positions
+
+===============================================================================
